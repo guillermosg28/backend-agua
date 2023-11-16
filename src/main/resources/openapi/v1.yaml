@@ -193,7 +193,7 @@ components:
         user:
           type: string
           example: "Guillermo"
-        total consumption:
+        total_consumption:
           type: number
         average_consumption:
           type: number

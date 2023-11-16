@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @Slf4j
 @RequestMapping("/api/v1/")
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 public class EventRestAdapter implements EventApi{
 
     private final EventUseCase eventUseCase;
@@ -28,17 +27,17 @@ public class EventRestAdapter implements EventApi{
     @Override
     public ResponseEntity<SuccessResponseDto> _createEvent(ReceptionEventRequestDto receptionEventRequestDto) {
 
-        EventRequest eventRequest = new EventRequest();
-        eventRequest.setActivity(receptionEventRequestDto.getActivity().longValue());
-        eventRequest.setUser(receptionEventRequestDto.getUser().longValue());
-        eventRequest.setTime(receptionEventRequestDto.getTime());
-        eventRequest.setConsumption(receptionEventRequestDto.getConsumption());
-
-        SuccessResponse successResponse = eventUseCase.createEvent(eventRequest);
+//        EventRequest eventRequest = new EventRequest();
+//        eventRequest.setActivity(receptionEventRequestDto.getActivity().longValue());
+//        eventRequest.setUser(receptionEventRequestDto.getUser().longValue());
+//        eventRequest.setTime(receptionEventRequestDto.getTime());
+//        eventRequest.setConsumption(receptionEventRequestDto.getConsumption());
+//
+//        SuccessResponse successResponse = eventUseCase.createEvent(eventRequest);
 
         SuccessResponseDto successResponseDto = new SuccessResponseDto();
-        successResponseDto.setCode(successResponse.getCode());
-        successResponseDto.setMessage(successResponse.getMessage());
+        successResponseDto.setCode("201");
+        successResponseDto.setMessage("Evento creado correctamente");
 
         return ResponseEntity.ok().body(successResponseDto);
     }

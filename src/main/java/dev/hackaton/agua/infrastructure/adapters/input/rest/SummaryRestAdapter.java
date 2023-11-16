@@ -17,7 +17,6 @@ import java.math.BigDecimal;
 @RequiredArgsConstructor
 @Slf4j
 @RequestMapping("/api/v1/")
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 public class SummaryRestAdapter implements SummaryApi{
 
     private final SummaryUseCase summaryUseCase;
