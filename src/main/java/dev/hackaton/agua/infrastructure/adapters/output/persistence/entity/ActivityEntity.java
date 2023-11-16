@@ -12,23 +12,23 @@ import java.io.Serializable;
  */
 
 @Entity
-@Table(name = "ROLES")
 @NoArgsConstructor
 @Getter
 @Setter
-public class RoleEntity implements Serializable {
+@Table(name = "activities")
+public class ActivityEntity implements Serializable {
 
     private final static long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "roles_id", nullable = false)
+    @Column(name = "activities_id", nullable = false)
     private Long id;
 
-    @Column(name = "roles_role_name", nullable = false)
-    private String roleName;
+    @Column(name = "activities_name", nullable = false)
+    private String name;
 
-    @Column(name = "roles_role_description")
-    private String roleDescription;
+    @Column(name = "activities_percentage", nullable = false)
+    private Integer percentage;
 
 }
