@@ -9,7 +9,7 @@ Allows operations:
 - Count time in the shower.
   -How many times do you go to the bathroom.
   -How many times do you run the washing machine.
--
+
 ## Previous requirements
 
 Make sure you have the following installed before you begin:
