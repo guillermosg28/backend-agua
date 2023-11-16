@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -22,17 +23,20 @@ public class UserActivitiesEntity {
     private Long id;
 
 
+    @ManyToOne
+    @JoinColumn(name = "users_id")
     @Column(name = "user_activities_user_id")
-    private Long userId;
+    private UserEntity user;
 
     @Column(name = "user_activities_time")
-    private Date creationTime;
+    private LocalDateTime creationTime;
 
-    @Column(name = "user_activities_activity")
-    private Long activity;
+//    @ManyToOne
+//    @Column(name = "user_activities_activity")
+//    private ActivityEntity activityEntity;
 
     @Column(name = "user_activities_consumption")
-    private float consumption;
+    private double consumption;
 
 
 }

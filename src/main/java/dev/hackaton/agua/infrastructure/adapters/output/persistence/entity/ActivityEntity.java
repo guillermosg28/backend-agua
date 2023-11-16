@@ -29,6 +29,6 @@ public class ActivityEntity implements Serializable {
     private String name;
 
     @Column(name = "activities_percentage", nullable = false)
-    private Integer percentage;
+    private double percentage;
 
 }
