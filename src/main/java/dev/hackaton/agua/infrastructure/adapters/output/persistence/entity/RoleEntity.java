@@ -1,14 +1,20 @@
 package dev.hackaton.agua.infrastructure.adapters.output.persistence.entity;
 
-import lombok.Data;
-import org.springframework.data.annotation.Id;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "ROLES")
-@Data
-public class RoleEntity {
+@NoArgsConstructor
+@Getter
+@Setter
+public class RoleEntity implements Serializable {
+
+    private final static long serialVersionUID = 1L;
 
 
     @Id
@@ -22,21 +28,4 @@ public class RoleEntity {
     @Column(name = "roles_role_description")
     private String roleDescription;
 
-    public RoleEntity() {
-    }
-
-    public RoleEntity(Long id, String roleName, String roleDescription) {
-        this.id = id;
-        this.roleName = roleName;
-        this.roleDescription = roleDescription;
-    }
-
-    @Override
-    public String toString() {
-        return "RoleEntity{" +
-                "id=" + id +
-                ", roleName='" + roleName + '\'' +
-                ", roleDescription='" + roleDescription + '\'' +
-                '}';
-    }
 }
