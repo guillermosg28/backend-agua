@@ -16,6 +16,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Optional;
 
@@ -30,9 +31,6 @@ public class EventService implements EventUseCase {
     private final String BATHROOM = "INODORO";
 
     private final String WASHING_MACHINE = "LAVADORA";
-
-    private LocalDateTime eventTime;
-
 
     @Autowired
     private ActivityRepository activityRepository;
@@ -75,12 +73,13 @@ public class EventService implements EventUseCase {
 //            return successResponse;
 //        )
 
-        eventTime =  LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime dateFormatter = LocalDateTime.now();
 
         UserActivitiesEntity userActivitiesEntity = new UserActivitiesEntity();
 //        userActivitiesEntity.setActivityEntity(activityEntity.get());
         userActivitiesEntity.setUser(userEntity.get());
-        userActivitiesEntity.setCreationTime(eventTime);
+        userActivitiesEntity.setCreationTime(dateFormatter);
         userActivitiesEntity.setConsumption(eventRequest.getConsumption());
 
         SuccessResponse successResponse = new SuccessResponse();

@@ -23,17 +23,16 @@ public class UserActivitiesEntity {
     private Long id;
 
 
-    @ManyToOne
-    @JoinColumn(name = "users_id")
-    @Column(name = "user_activities_user_id")
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name = "user_activities_user_id")
     private UserEntity user;
 
     @Column(name = "user_activities_time")
     private LocalDateTime creationTime;
 
-//    @ManyToOne
-//    @Column(name = "user_activities_activity")
-//    private ActivityEntity activityEntity;
+    @ManyToOne
+    @JoinColumn(name = "user_activities_activity")
+    private ActivityEntity activityEntity;
 
     @Column(name = "user_activities_consumption")
     private double consumption;
