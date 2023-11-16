@@ -40,5 +40,5 @@ public class EventRestAdapter implements EventApi{
 
         return ResponseEntity.ok().body(successResponseDto);
     }
-    
+
 }
