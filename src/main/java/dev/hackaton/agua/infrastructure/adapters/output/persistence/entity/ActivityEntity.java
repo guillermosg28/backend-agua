@@ -15,7 +15,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "activities")
+@Table(name = "ACTIVITIES")
 public class ActivityEntity implements Serializable {
 
     private final static long serialVersionUID = 1L;
