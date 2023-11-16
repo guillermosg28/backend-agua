@@ -79,6 +79,40 @@ paths:
               schema:
                 $ref: '#/components/schemas/Conflict'
 
+  /summary/{userId}:
+    get:
+      tags:
+        - events
+      summary:
+      description: Summary user
+      operationId: summaryUser
+      parameters:
+        - name: userId
+          in: path
+          description: User id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Operation successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummaryResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Conflict'
+
 components:
   schemas:
     BadRequest:
@@ -103,7 +137,6 @@ components:
       required:
         - email
         - password
-
     ReceptionEventRequest:
       type: object
       properties:
@@ -117,7 +150,6 @@ components:
           type: string
         consumption:
           type: number
-
 
     #Response
     ErrorResponse:
@@ -139,7 +171,6 @@ components:
           type: string
           example: "Success"
 
-
     UserLoginResponse:
       type: object
       properties:
@@ -155,3 +186,14 @@ components:
         token:
           type: string
           example: "123456789"
+
+    SummaryResponse:
+      type: object
+      properties:
+        user:
+          type: string
+          example: "Guillermo"
+        total consumption:
+          type: number
+        average_consumption:
+          type: number
