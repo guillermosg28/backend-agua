@@ -22,12 +22,22 @@ public class UserEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "users_id", nullable = false)
     private Long id;
 
-    @Column(name = "email", nullable = false, length = 100)
+    @Column(name = "users_name")
+    private String name;
+
+    @Column(name = "users_first_lastname")
+    private String firstLastname;
+
+    @Column(name = "users_second_lastname")
+    private String secondLastname;
+
+    @Column(name = "users_id_email", nullable = false, length = 100)
     private String email;
 
-    @Column(name = "password", nullable = false, length = 100)
+    @Column(name = "users_pass", nullable = false, length = 100)
     private String password;
 
 

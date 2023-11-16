@@ -15,6 +15,6 @@ public class UserPersistenceAdapter implements UserOutputPort {
     private final UserPersistenceMapper userPersistenceMapper;
     @Override
     public UserResponse _loginUser(String email, String password) {
-        return userPersistenceMapper.toUserResponse(userRepository.findByEmailPAndPassword(email, password));
+        return userPersistenceMapper.toUserResponse(userRepository.findByEmailAndPassword(email, password));
     }
 }
