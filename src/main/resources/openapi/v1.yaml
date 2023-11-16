@@ -45,6 +45,39 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Conflict'
+  /event:
+    post:
+      tags:
+        - events
+      summary: Create event
+      description: Create event
+      operationId: createEvent
+      requestBody:
+        description: User to login
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReceptionEventRequest'
+      responses:
+        '201':
+          description: Operation successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Conflict'
 
 components:
   schemas:
@@ -71,6 +104,21 @@ components:
         - email
         - password
 
+    ReceptionEventRequest:
+      type: object
+      properties:
+        activity:
+          type: integer
+        time:
+          type: string
+        user:
+          type: integer
+        name:
+          type: string
+        consumption:
+          type: number
+
+
     #Response
     ErrorResponse:
       type: object
@@ -90,6 +138,7 @@ components:
         code:
           type: string
           example: "Success"
+
 
     UserLoginResponse:
       type: object

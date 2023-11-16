@@ -18,7 +18,7 @@ FROM openjdk:17.0.1-jdk-slim
 COPY --from=build /app/target/agua-0.0.1-SNAPSHOT.jar /app/app.jar
 
 # Exponemos el puerto
-EXPOSE 9292
+EXPOSE 6262
 
 # Ejecutamos la aplicacion
 CMD ["java", "-jar", "/app/app.jar"]
