@@ -1,0 +1,18 @@
+{
+  "Activity": "shower"
+  "Time": 2023-11-16 17:20 ,
+  "User": 1,
+  "Consumption": 20,
+
+
+  "Activity":"bathroom"
+  "Time": 2023-11-16 17:20,
+  "User": 1,
+  "Consumption": 1,
+
+  "Activity":"whashingMachine"
+  "Time": 2023-11-16 17:20,
+  "User": 1,
+  "Consumption": 1,
+}
+  
