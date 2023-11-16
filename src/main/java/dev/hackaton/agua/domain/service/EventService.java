@@ -46,7 +46,10 @@ public class EventService implements EventUseCase {
     @Override
     public SuccessResponse createEvent(EventRequest eventRequest) {
 
-        Optional<ActivityEntity> activityEntity = activityRepository.findById(eventRequest.getActivity().longValue());
+        System.out.println("Event request: " + eventRequest.getActivity().toString() );
+        System.out.println("Event request: " + eventRequest.getUser().toString() );
+
+        Optional<ActivityEntity> activityEntity = activityRepository.findById(eventRequest.getActivity());
 
         if(activityEntity.isEmpty()) {
             SuccessResponse successResponse = new SuccessResponse();
@@ -55,7 +58,7 @@ public class EventService implements EventUseCase {
             return successResponse;
         }
 
-        Optional<UserEntity> userEntity = userRepository.findById(eventRequest.getUser().longValue());
+        Optional<UserEntity> userEntity = userRepository.findById(eventRequest.getUser());
 
         if(userEntity.isEmpty()) {
             SuccessResponse successResponse = new SuccessResponse();
@@ -77,7 +80,7 @@ public class EventService implements EventUseCase {
         LocalDateTime dateFormatter = LocalDateTime.now();
 
         UserActivitiesEntity userActivitiesEntity = new UserActivitiesEntity();
-//        userActivitiesEntity.setActivityEntity(activityEntity.get());
+        userActivitiesEntity.setActivityEntity(activityEntity.get());
         userActivitiesEntity.setUser(userEntity.get());
         userActivitiesEntity.setCreationTime(dateFormatter);
         userActivitiesEntity.setConsumption(eventRequest.getConsumption());

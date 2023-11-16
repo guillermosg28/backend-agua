@@ -26,11 +26,10 @@ public class EventRestAdapter implements EventApi{
     public ResponseEntity<SuccessResponseDto> _createEvent(ReceptionEventRequestDto receptionEventRequestDto) {
 
         EventRequest eventRequest = new EventRequest();
-        eventRequest.getActivity();
-        eventRequest.getTime();
-        eventRequest.getUser();
-        eventRequest.getName();
-        eventRequest.getConsumption();
+        eventRequest.setActivity(receptionEventRequestDto.getActivity().longValue());
+        eventRequest.setUser(receptionEventRequestDto.getUser().longValue());
+        eventRequest.setTime(receptionEventRequestDto.getTime());
+        eventRequest.setConsumption(receptionEventRequestDto.getConsumption());
 
         SuccessResponse successResponse = eventUseCase.createEvent(eventRequest);
 

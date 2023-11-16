@@ -149,7 +149,7 @@ components:
         name:
           type: string
         consumption:
-          type: number
+          type: integer
 
     #Response
     ErrorResponse:

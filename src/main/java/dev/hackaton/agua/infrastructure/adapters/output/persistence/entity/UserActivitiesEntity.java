@@ -30,7 +30,7 @@ public class UserActivitiesEntity {
     @Column(name = "user_activities_time")
     private LocalDateTime creationTime;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_activities_activity")
     private ActivityEntity activityEntity;
 
