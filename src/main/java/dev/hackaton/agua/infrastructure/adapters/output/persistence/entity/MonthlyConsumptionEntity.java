@@ -7,23 +7,23 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "AVERAGE_CONSUMPTION")
-@Getter
+@Table(name = "MONTHLY_CONSUMPTION")
 @Setter
+@Getter
 @NoArgsConstructor
-public class AverageConsumptionEntity {
+public class MonthlyConsumptionEntity {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "consumption_id", nullable = false)
+    @Column(name = "user_activities_id", nullable = false)
     private Long id;
 
-    @Column(name = "consumption_barribcn")
-    private String barriBcn;
 
-    @Column(name = "consumption_lhabdia")
-    private float consumptionAverage;
+    @Column(name = "monthly_consumption_month")
+    private String month;
 
+    @Column(name = "monthly_consumption_consumption")
+    private double consumption;
 
 }
