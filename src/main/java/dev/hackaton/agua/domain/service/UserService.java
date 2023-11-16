@@ -15,6 +15,6 @@ public class UserService implements UserCase {
     private final UserOutputPort userOutputPort;
     @Override
     public UserResponse _loginUser(String email, String password) {
-        return null;
+        return userOutputPort._loginUser(email, password);
     }
 }
